@@ -1,8 +1,6 @@
 
-
-
 export default function Home() {
-  return <div>
+  return <div className= ".center">
     <p>Pokemon Randomizer</p>
   </div>
 }
