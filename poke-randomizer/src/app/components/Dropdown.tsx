@@ -2,22 +2,20 @@ import React from 'react'
 
 const Dropdown = () => {
   return (
-    <div>
-        <button className="dropdown">
+        <button className="group relative bg-gray-200 px-4 rounded text-black py-2 hover:bg-gray-300">
             Generation
-            <div className="dropdownelement">
-                <a className="active">Generation 1</a>
-                <a>Generation 2</a>
-                <a>Generation 3</a>
-                <a>Generation 4</a>
-                <a>Generation 5</a>
-                <a>Generation 6</a>
-                <a>Generation 7</a>
-                <a>Generation 8</a>
-                <a>Generation 9</a>
+            <div className="absolute bg-gray-200 top-full right-0 rounded-lg p-4 mt-1 shadow-md scale-y-0 group-focus:scale-y-100 origin-top duration-200">
+                <a className="active">Gen 1</a>
+                <a>Gen 2</a>
+                <a>Gen 3</a>
+                <a>Gen 4</a>
+                <a>Gen 5</a>
+                <a>Gen 6</a>
+                <a>Gen 7</a>
+                <a>Gen 8</a>
+                <a>Gen 9</a>
             </div>
         </button>
-    </div>
   )
 }
 

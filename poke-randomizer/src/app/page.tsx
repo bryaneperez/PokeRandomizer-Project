@@ -7,6 +7,5 @@ export default function Home() {
       <Generate></Generate>
       <Dropdown></Dropdown>
     </p>
-
   </div>
 }

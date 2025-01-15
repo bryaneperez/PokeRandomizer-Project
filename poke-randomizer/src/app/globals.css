@@ -32,11 +32,4 @@ body {
   @apply bg-gray-200 px-4 rounded text-black py-2 hover:bg-gray-300
 }
 
-.dropdown{
-  @apply  bg-gray-200 px-4 rounded text-black py-2 group relative hover:bg-gray-300
-}
-
-.dropdownelement {
-  @apply absolute top-full right-0 rounded-lg p-3 mt-1 shadow-md scale-y-0 group-focus:scale-y-100 origin-top duration-200
-}
 }
