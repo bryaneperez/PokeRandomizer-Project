@@ -6,8 +6,7 @@ import {Filter} from "./components/Filter";
 
 export default function Home() {
   return <div className="flex-col flex items-center">
-      <Filter></Filter>
-      <Button className="justify-items-center">Generate New Team</Button>
+      <Button className="justify-items-center">Generate Pokemon</Button>
       <SimpleFooter></SimpleFooter>
   </div>
 }
