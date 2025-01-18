@@ -7,6 +7,7 @@ import {
     CardFooter,
     Typography,
     Button,
+    ButtonGroup,
   } from "@material-tailwind/react";
 
    interface Pokemon {
@@ -41,7 +42,14 @@ import {
           </Typography>
         </CardBody>
         <CardFooter className="pt-0">
-          <Button>The moves will be down here</Button>
+          <ButtonGroup fullWidth>
+            <Button>Move 1</Button>
+            <Button>Move 2</Button>
+          </ButtonGroup>
+          <ButtonGroup fullWidth>
+            <Button>Move 3</Button>
+            <Button>Move 4</Button>
+          </ButtonGroup>
         </CardFooter>
       </Card>
     );
