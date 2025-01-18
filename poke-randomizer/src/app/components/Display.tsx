@@ -1,6 +1,4 @@
 import Pokedex from 'pokedex-promise-v2';
-import {GetRandomPokemon} from "../scripts/Generate";
-
 
 import {
     Card,
@@ -16,25 +14,30 @@ import {
     name: string;
     sprite: string;
    }
+
    const P = new Pokedex();
-   const poke = GetRandomPokemon();
 
 
-  export function Display() {
+  export  async function Display() {
+    const randomID = Math.floor(Math.random() * 1010) + 1;
+    const randomAbilityID = Math.floor(Math.random() * 310) + 1;
+    const randomPokemon = P.getPokemonByName(randomID.toString());
+    const randomAbility = P.getAbilityByName(randomID.toString());
+
     return (
       <Card className="mt-6 w-96">
         <CardHeader color="blue-gray" className="relative h-56">
           <img
-            src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${poke.id}.png"}
+            src={(await randomPokemon).sprites.front_default?.toString()}
             alt="card-image"
           />
         </CardHeader>
         <CardBody>
           <Typography variant="h5" color="blue-gray" className="mb-2">
-            poke.name.toString();
+            ${(await randomPokemon).species.toString()};
           </Typography>
           <Typography>
-            This is where the ability and nature will go.
+            randomAbility.toString();
           </Typography>
         </CardBody>
         <CardFooter className="pt-0">
@@ -43,5 +46,3 @@ import {
       </Card>
     );
   }
-  
-  
