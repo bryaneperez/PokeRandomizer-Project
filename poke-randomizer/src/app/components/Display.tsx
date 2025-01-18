@@ -24,6 +24,7 @@ import {
     const randomAbilityID = Math.floor(Math.random() * 310) + 1;
     const randomPokemon = P.getPokemonByName(randomID.toString());
     const randomAbility = P.getAbilityByName(randomID.toString());
+    const randomMoves = generateRandomNumbers(4,919);
 
     return (
       <Card className="mt-6 w-96">
@@ -43,14 +44,29 @@ import {
         </CardBody>
         <CardFooter className="pt-0">
           <ButtonGroup fullWidth>
-            <Button>Move 1</Button>
-            <Button>Move 2</Button>
+            <Button>${P.getMoveByName(randomMoves[0]).toString()}</Button>
+            <Button>${P.getMoveByName(randomMoves[1]).toString()}</Button>
           </ButtonGroup>
           <ButtonGroup fullWidth>
-            <Button>Move 3</Button>
-            <Button>Move 4</Button>
+            <Button>${P.getMoveByName(randomMoves[2]).toString()}</Button>
+            <Button>${P.getMoveByName(randomMoves[3]).toString()}</Button>
           </ButtonGroup>
         </CardFooter>
       </Card>
     );
+  }
+
+
+  function generateRandomNumbers(count: number, max: number): number[] {
+    const numbers: number[] = [];
+
+    while(numbers.length < count) {
+      const randomNumber = Math.floor(Math.random() * (max) + 1);
+      if (!numbers.includes(randomNumber)){
+        numbers.push(randomNumber);
+      }
+    }
+
+    return numbers;
+
   }
