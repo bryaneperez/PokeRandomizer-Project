@@ -67,7 +67,7 @@ export function Display() {
 
   return (
     <Card className="mt-6 w-96">
-      <CardHeader color="blue-gray" className="relative h-56">
+      <CardHeader color="blue-gray" className="relative h-15 w-15 flex items-center justify-center overflow-hidden">
         <img src={randomPokemon.sprite} alt="card-image" />
       </CardHeader>
       <CardBody>
