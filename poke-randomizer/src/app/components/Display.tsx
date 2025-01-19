@@ -23,7 +23,7 @@ import {
     const randomID = Math.floor(Math.random() * 1010) + 1;
     const randomAbilityID = Math.floor(Math.random() * 310) + 1;
     const randomPokemon = P.getPokemonByName(randomID.toString());
-    const randomAbility = P.getAbilityByName(randomID.toString());
+    const randomAbility = (await P.getAbilityByName(randomAbilityID.toString())).name;
     const randomMoves = generateRandomNumbers(4,919);
 
     return (
@@ -36,20 +36,20 @@ import {
         </CardHeader>
         <CardBody>
           <Typography variant="h5" color="blue-gray" className="mb-2">
-            ${(await randomPokemon).species.toString()};
+            {(await randomPokemon).species.name.toString()}
           </Typography>
           <Typography>
-            randomAbility.toString();
+           {(await randomAbility).toString()}
           </Typography>
         </CardBody>
         <CardFooter className="pt-0">
           <ButtonGroup fullWidth>
-            <Button>${P.getMoveByName(randomMoves[0]).toString()}</Button>
-            <Button>${P.getMoveByName(randomMoves[1]).toString()}</Button>
+            <Button>{(await P.getMoveByName(randomMoves[0])).name.toString()}</Button>
+            <Button>{(await P.getMoveByName(randomMoves[1])).name.toString()}</Button>
           </ButtonGroup>
           <ButtonGroup fullWidth>
-            <Button>${P.getMoveByName(randomMoves[2]).toString()}</Button>
-            <Button>${P.getMoveByName(randomMoves[3]).toString()}</Button>
+            <Button>{(await P.getMoveByName(randomMoves[2])).name.toString()}</Button>
+            <Button>{(await P.getMoveByName(randomMoves[3])).name.toString()}</Button>
           </ButtonGroup>
         </CardFooter>
       </Card>
