@@ -2,6 +2,8 @@
 
 import React, { useEffect, useState } from 'react';
 import Pokedex from 'pokedex-promise-v2';
+import {FilterOptions} from "./FilterOptions";
+import {Filter} from "./Filter";
 import {
   Card,
   CardHeader,
@@ -12,6 +14,9 @@ import {
   ButtonGroup,
 } from '@material-tailwind/react';
 
+interface DisplayProps {
+  filter: FilterOptions;
+}
 interface Pokemon {
   id: number;
   name: string;
@@ -31,7 +36,7 @@ function generateRandomNumbers(count: number, max: number): number[] {
   return numbers;
 }
 
-export function Display() {
+export function Display({filter}: DisplayProps) {
   const [randomPokemon, setRandomPokemon] = useState<Pokemon | null>(null);
   const [randomAbility, setRandomAbility] = useState<string | null>(null);
   const [randomMoves, setRandomMoves] = useState<string[]>([]);

@@ -1,24 +1,30 @@
-'use client'
+'use client';
 
-import {SimpleFooter} from "./components/Footer";
-import {Display} from "./components/Display";
-import React from 'react';
-
-
-
+import { SimpleFooter } from './components/Footer';
+import { Display } from './components/Display';
+import { FilterOptions } from './components/FilterOptions'; // Adjust as necessary
+import { Filter } from './components/Filter';
+import React, { useState } from 'react';
 
 export default function Home() {
-  return <div className="flex-col flex items-center mt-20 min-h-screen h-full">
-      <div className= "flex flex-wrap justify-center space-x-4 space-y-4">
-      <Display></Display>
-      <Display></Display>
-      <Display></Display>
-      <Display></Display>
-      <Display></Display>
-      <Display></Display>
+  const [filter, setFilter] = useState<FilterOptions>(FilterOptions.All);
+
+  return (
+    <div className="flex-col flex items-center mt-20 min-h-screen h-full">
+      <div>
+        <Filter onSelect={setFilter} />
       </div>
-      <div className ="flex min-h-screen">
-      <SimpleFooter></SimpleFooter>
-      </div> 
-  </div>
+      <div className="flex flex-wrap justify-center space-x-4 space-y-4">
+        <Display filter={filter} />
+        <Display filter={filter} />
+        <Display filter={filter} />
+        <Display filter={filter} />
+        <Display filter={filter} />
+        <Display filter={filter} />
+      </div>
+      <div className="flex min-h-screen">
+        <SimpleFooter />
+      </div>
+    </div>
+  );
 }
