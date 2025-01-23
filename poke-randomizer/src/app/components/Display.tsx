@@ -3,17 +3,8 @@
 import React, { useEffect, useState } from 'react';
 import Pokedex from 'pokedex-promise-v2';
 import {FilterOptions} from "./FilterOptions";
-import {Filter} from "./Filter";
 import {FilterHolder} from "./FilterHolder";
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Typography,
-  Button,
-  ButtonGroup,
-} from '@material-tailwind/react';
+import {Card,CardHeader,CardBody,CardFooter,Typography,Button,ButtonGroup,} from '@material-tailwind/react';
 
 interface DisplayProps {
   filter: FilterOptions;
@@ -45,7 +36,7 @@ interface Pokemon {
 
 const P = new Pokedex();
 
-function generateRandomNumbers(count: number, max: number): number[] {
+function generateRandomNumbers(count: number, max: number, filter: FilterOptions): number[] {
   const numbers: number[] = [];
   while (numbers.length < count) {
     const randomNumber = Math.floor(Math.random() * (max) + 1);
@@ -132,7 +123,7 @@ export function Display({filter}: DisplayProps, data: DisplayProps) {
      
       const pokemonData = await P.getPokemonByName(randomID.toString());
       const abilityData = (await P.getAbilityByName(randomAbilityID.toString())).name;
-      const movesIDs = generateRandomNumbers(4, 919);
+      const movesIDs = generateRandomNumbers(4, 919, filter);
       const movesData = await Promise.all(
         movesIDs.map((id) => P.getMoveByName(id.toString()).then((move) => move.name))
       );
