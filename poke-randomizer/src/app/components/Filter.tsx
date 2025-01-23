@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Menu, MenuItem } from '@material-tailwind/react';
-import { FilterOptions } from "./FilterOptions";
+import { Menu, MenuItem, MenuList, MenuHandler, Button, Typography } from '@material-tailwind/react';
+import { FilterOptions } from './FilterOptions';
 
 export const Filter: React.FC<{ onSelect: (filter: FilterOptions) => void }> = ({ onSelect }) => {
   const [selectedFilter, setSelectedFilter] = useState<FilterOptions>(FilterOptions.All);
@@ -14,11 +14,17 @@ export const Filter: React.FC<{ onSelect: (filter: FilterOptions) => void }> = (
 
   return (
     <Menu>
-      {Object.values(FilterOptions).map(option => (
-        <MenuItem key={option} onClick={() => handleSelect(option)}>
-          {option}
-        </MenuItem>
-      ))}
+      <MenuHandler>
+        <Button>Generation Select</Button>
+      </MenuHandler>
+      <MenuList>
+        {Object.values(FilterOptions).map(option => (
+          <MenuItem key={option} onClick={() => handleSelect(option)} className="flex justify-between">
+            {option}
+            {option === selectedFilter && <Typography className="ml-4">✔️</Typography>}
+          </MenuItem>
+        ))}
+      </MenuList>
     </Menu>
   );
 };
