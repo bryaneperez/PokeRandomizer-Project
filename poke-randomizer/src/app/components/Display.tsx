@@ -16,7 +16,26 @@ import {
 
 interface DisplayProps {
   filter: FilterOptions;
+  data : {
+    Gen1Moves: string[];
+    Gen2Moves: string[];
+    Gen3Moves: string[];
+    Gen4Moves: string[];
+    Gen5Moves: string[];
+    Gen6Moves: string[];
+    Gen7Moves: string[];
+    Gen8Moves: string[];
+    Gen9Moves: string[];
+    Gen3Abilities: string[];
+    Gen4Abilities: string[];
+    Gen5Abilities: string[];
+    Gen6Abilities: string[];
+    Gen7Abilities: string[];
+    Gen8Abilities: string[];
+    Gen9Abilities: string[];
+  }
 }
+
 interface Pokemon {
   id: number;
   name: string;
@@ -36,7 +55,7 @@ function generateRandomNumbers(count: number, max: number): number[] {
   return numbers;
 }
 
-export function Display({filter}: DisplayProps) {
+export function Display({filter}: DisplayProps, data: DisplayProps) {
   const [randomPokemon, setRandomPokemon] = useState<Pokemon | null>(null);
   const [randomAbility, setRandomAbility] = useState<string | null>(null);
   const [randomMoves, setRandomMoves] = useState<string[]>([]);

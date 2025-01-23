@@ -4,6 +4,7 @@ import { SimpleFooter } from './components/Footer';
 import { Display } from './components/Display';
 import { FilterOptions } from './components/FilterOptions'; // Adjust as necessary
 import { Filter } from './components/Filter';
+import { FilterHolder} from './components/FilterHolder';
 import React, { useState } from 'react';
 
 export default function Home() {
@@ -15,12 +16,12 @@ export default function Home() {
         <Filter onSelect={setFilter} />
       </div>
       <div className="flex flex-wrap justify-center space-x-4 space-y-4">
-        <Display filter={filter} />
-        <Display filter={filter} />
-        <Display filter={filter} />
-        <Display filter={filter} />
-        <Display filter={filter} />
-        <Display filter={filter} />
+        <Display filter={filter} data = {FilterHolder} />
+        <Display filter={filter} data = {FilterHolder}/>
+        <Display filter={filter} data = {FilterHolder}/>
+        <Display filter={filter} data = {FilterHolder}/>
+        <Display filter={filter} data = {FilterHolder}/>
+        <Display filter={filter} data = {FilterHolder}/>
       </div>
       <div className="flex min-h-screen">
         <SimpleFooter />
