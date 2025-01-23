@@ -67,7 +67,7 @@ export function Display({filter}: DisplayProps, data: DisplayProps) {
       let randomAbilityID = 0;
       switch(filter) {
         case FilterOptions.All:
-          randomID = Math.floor(Math.random() * 1010) + 1;
+          randomID = Math.floor(Math.random() * 1025) + 1;
           randomAbilityID = Math.floor(Math.random() * 310) + 1;
           break;
         case FilterOptions.Generation1:
@@ -82,32 +82,50 @@ export function Display({filter}: DisplayProps, data: DisplayProps) {
           randomID = Math.floor(Math.random() * 386) + 1;
           while (true) {
           randomAbilityID = Math.floor(Math.random() * 310) + 1;
-          if (FilterHolder.Gen3Moves.includes((await P.getAbilityByName(randomAbilityID)).name.toString())){
+          if (FilterHolder.Gen3Abilities.includes((await P.getAbilityByName(randomAbilityID)).name.toString())){
             break;}}
           break;
         case FilterOptions.Generation4:
-          randomID = Math.floor(Math.random() * 386) + 1;
-          randomAbilityID = Math.floor(Math.random() * 310) + 1;
+          randomID = Math.floor(Math.random() * 493) + 1;
+          while (true) {
+            randomAbilityID = Math.floor(Math.random() * 310) + 1;
+            if (FilterHolder.Gen4Abilities.includes((await P.getAbilityByName(randomAbilityID)).name.toString())){
+              break;}}
           break;
         case FilterOptions.Generation5:
-          randomID = Math.floor(Math.random() * 386) + 1;
-          randomAbilityID = Math.floor(Math.random() * 310) + 1;
+          randomID = Math.floor(Math.random() * 649) + 1;
+          while (true) {
+            randomAbilityID = Math.floor(Math.random() * 310) + 1;
+            if (FilterHolder.Gen5Abilities.includes((await P.getAbilityByName(randomAbilityID)).name.toString())){
+              break;}}
           break;
         case FilterOptions.Generation6:
-          randomID = Math.floor(Math.random() * 386) + 1;
-          randomAbilityID = Math.floor(Math.random() * 310) + 1;
+          randomID = Math.floor(Math.random() * 721) + 1;
+          while (true) {
+            randomAbilityID = Math.floor(Math.random() * 310) + 1;
+            if (FilterHolder.Gen6Abilities.includes((await P.getAbilityByName(randomAbilityID)).name.toString())){
+              break;}}
           break;
         case FilterOptions.Generation7:
-          randomID = Math.floor(Math.random() * 386) + 1;
-          randomAbilityID = Math.floor(Math.random() * 310) + 1;
+          randomID = Math.floor(Math.random() * 809) + 1;
+          while (true) {
+            randomAbilityID = Math.floor(Math.random() * 310) + 1;
+            if (FilterHolder.Gen7Abilities.includes((await P.getAbilityByName(randomAbilityID)).name.toString())){
+              break;}}
           break;   
         case FilterOptions.Generation8:
-          randomID = Math.floor(Math.random() * 386) + 1;
-          randomAbilityID = Math.floor(Math.random() * 310) + 1;
+          randomID = Math.floor(Math.random() * 904) + 1;
+          while (true) {
+            randomAbilityID = Math.floor(Math.random() * 310) + 1;
+            if (FilterHolder.Gen8Abilities.includes((await P.getAbilityByName(randomAbilityID)).name.toString())){
+              break;}}
           break;
         case FilterOptions.Generation9:
-          randomID = Math.floor(Math.random() * 1010) + 1;
-          randomAbilityID = Math.floor(Math.random() * 310) + 1;
+          randomID = Math.floor(Math.random() * 1025) + 1;
+          while (true) {
+            randomAbilityID = Math.floor(Math.random() * 310) + 1;
+            if (FilterHolder.Gen9Abilities.includes((await P.getAbilityByName(randomAbilityID)).name.toString())){
+              break;}}
           break;      
 
       }
