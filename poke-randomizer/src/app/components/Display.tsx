@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Pokedex from 'pokedex-promise-v2';
 import {FilterOptions} from "./FilterOptions";
 import {Filter} from "./Filter";
+import {FilterHolder} from "./FilterHolder";
 import {
   Card,
   CardHeader,
@@ -62,8 +63,55 @@ export function Display({filter}: DisplayProps, data: DisplayProps) {
 
   useEffect(() => {
     async function fetchData() {
-      const randomID = Math.floor(Math.random() * 1010) + 1;
-      const randomAbilityID = Math.floor(Math.random() * 310) + 1;
+      let randomID = 0;
+      let randomAbilityID = 0;
+      switch(filter) {
+        case FilterOptions.All:
+          randomID = Math.floor(Math.random() * 1010) + 1;
+          randomAbilityID = Math.floor(Math.random() * 310) + 1;
+          break;
+        case FilterOptions.Generation1:
+          randomID = Math.floor(Math.random() * 151) + 1;
+          randomAbilityID = Math.floor(Math.random() * 310) + 1;
+          break;
+        case FilterOptions.Generation2:
+          randomID = Math.floor(Math.random() * 251) + 1;
+          randomAbilityID = Math.floor(Math.random() * 310) + 1;
+          break;
+        case FilterOptions.Generation3:
+          randomID = Math.floor(Math.random() * 386) + 1;
+          while (true) {
+          randomAbilityID = Math.floor(Math.random() * 310) + 1;
+          if (FilterHolder.Gen3Moves.includes((await P.getAbilityByName(randomAbilityID)).name.toString())){
+            break;}}
+          break;
+        case FilterOptions.Generation4:
+          randomID = Math.floor(Math.random() * 386) + 1;
+          randomAbilityID = Math.floor(Math.random() * 310) + 1;
+          break;
+        case FilterOptions.Generation5:
+          randomID = Math.floor(Math.random() * 386) + 1;
+          randomAbilityID = Math.floor(Math.random() * 310) + 1;
+          break;
+        case FilterOptions.Generation6:
+          randomID = Math.floor(Math.random() * 386) + 1;
+          randomAbilityID = Math.floor(Math.random() * 310) + 1;
+          break;
+        case FilterOptions.Generation7:
+          randomID = Math.floor(Math.random() * 386) + 1;
+          randomAbilityID = Math.floor(Math.random() * 310) + 1;
+          break;   
+        case FilterOptions.Generation8:
+          randomID = Math.floor(Math.random() * 386) + 1;
+          randomAbilityID = Math.floor(Math.random() * 310) + 1;
+          break;
+        case FilterOptions.Generation9:
+          randomID = Math.floor(Math.random() * 1010) + 1;
+          randomAbilityID = Math.floor(Math.random() * 310) + 1;
+          break;      
+
+      }
+     
       const pokemonData = await P.getPokemonByName(randomID.toString());
       const abilityData = (await P.getAbilityByName(randomAbilityID.toString())).name;
       const movesIDs = generateRandomNumbers(4, 919);
